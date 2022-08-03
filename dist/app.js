@@ -68,7 +68,7 @@ var cors_1 = __importDefault(require("cors"));
 var dotenv = __importStar(require("dotenv"));
 var router_1 = require("./router");
 var CreateBot_1 = require("./bot/CreateBot");
-var Blaze_1 = require("@viniciusgdr/Blaze");
+var blaze_1 = require("@viniciusgdr/blaze");
 var axios_1 = __importDefault(require("axios"));
 dotenv.config();
 var bot = new CreateBot_1.Bot();
@@ -77,9 +77,8 @@ bot.commandBot();
 var socket;
 function connect() {
     var _this = this;
-    socket = (0, Blaze_1.makeConnectionBlaze)({
+    socket = (0, blaze_1.makeConnectionBlaze)({
         needCloseWithCompletedSession: false,
-        //token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTM4NTk3NTUsImJsb2NrcyI6W10sImlhdCI6MTY1ODM3Mjk1MCwiZXhwIjoxNjYzNTU2OTUwfQ.SS6oU6byFJStAZfOAi0jf6RzebzPzBrUpq2WHjkUkUw',
         type: 'doubles',
         requireNotRepeated: true,
     });
@@ -104,20 +103,6 @@ function connect() {
     });
 }
 connect();
-// socket.ev.on('game_complete', async (msg) => {
-//     const { id, color, roll} = msg as DoubleUpdate
-//     const colorName = color === 0 ? "white" :  color === 1 ? "red" : "black"
-//     console.log({ id, colorName, roll })
-//     await axios.post("http://localhost:3000/colors", { colorName, number: roll })
-//     setTimeout(() => {
-//         socket.closeSocket()
-//     }, 5000)
-// })
-// socket.ev.on('close', (msg) => {
-//     console.log('Fechou a conexão - ' + JSON.stringify(msg))
-//     socket = connect()
-//     console.log(socket)
-// })
 var app = (0, express_1.default)();
 exports.app = app;
 app.use((0, cors_1.default)());
