@@ -3,7 +3,7 @@ import cors from "cors"
 import * as dotenv from "dotenv";
 import { routes } from "./router"
 import { Bot } from "./bot/CreateBot";
-import { makeConnectionBlaze, DoubleUpdate } from '@viniciusgdr/Blaze'
+import { makeConnectionBlaze, DoubleUpdate } from '@viniciusgdr/blaze'
 import axios from "axios";
 
 dotenv.config();
