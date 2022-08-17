@@ -118,7 +118,7 @@ class MetricDouble {
                 console.log(`BOT1: 🥁 Analisando Possível Entrada 🧐`)
                 console.log(data.colors)
                 console.log("--------------------------------------------------")
-
+                
                 return data
             }
 
@@ -190,6 +190,9 @@ class MetricDouble {
 
                 // ATUALIZA O PADRAO
                 await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid })
+
+                // envia gif
+                await this.bot.replyGif({ gif: 'https://tenor.com/94u8.gif' })
                 
                 console.log(`BOT1: RED: ${await this.red}`)
                 console.log(data.colors)
@@ -250,6 +253,9 @@ class MetricDouble {
                 // ATUALIZA O PADRAO
                 await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: false })
 
+                // envia gif
+                await this.bot.replyGif({ gif: 'https://tenor.com/bnPFc.gif' })
+
                 console.log(`BOT1: GREEN WHITE: ${await this.greenWithWhite} ${data.gale ? `\n\n${thisGale}` : ""}`)
                 console.log(data.colors)
                 console.log("--------------------------------------------------")
@@ -297,6 +303,9 @@ class MetricDouble {
 
                 // ATUALIZA O PADRAO
                 await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: false })
+
+                // envia gif
+                await this.bot.replyGif({ gif: 'https://tenor.com/blMbi.gif' })
 
                 console.log(`BOT1: GREEN: ${await this.green} ${data.gale ? `\n${thisGale}` : ""}`)
                 console.log(data.colors)

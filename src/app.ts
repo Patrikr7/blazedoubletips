@@ -34,7 +34,7 @@ function connect(){
     })
 }
 
-connect()
+//connect()
 
 const app = express()
 

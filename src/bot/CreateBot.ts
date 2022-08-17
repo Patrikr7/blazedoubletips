@@ -31,6 +31,7 @@ interface IDataCount {
 class Bot {
     start: string    
     bots: Telegraf
+    gif: string
 
     constructor() {
         this.start = process.env.CHANNEL_TYPE + "\n🤖 Bot On! 🟢"
@@ -77,6 +78,10 @@ class Bot {
             console.log("Error reply message!")
             console.log(error.message)
         }
+    }    
+
+    async replyGif({ gif }) {
+        await this.bots.telegram.sendAnimation(process.env.CHANNEL_NAME, gif, { parse_mode: 'HTML' })
     }
 
     async commandBot() {
@@ -104,6 +109,7 @@ class Bot {
             const message = `🤖 Vamos ativar o Bot, fique atento! 📢\n\n<b>Blaze Double 7</b>`
             await this.sendMessage({ message })
             await ctx.replyWithHTML(`📨 <b>Ativando Bot!</b>`)
+            
             return
         })
 
@@ -138,11 +144,11 @@ class Bot {
             let cont_profit = ((profit + profitWhite + 100) - 100).toFixed(2).replace('.', ',')
             let totalSent = totalWin + red
             let percentageWin = Math.round((red * 100) / totalSent)
-            let bank = (data.profit_bank).toFixed(2).replace('.', ',')
+            let bank = (data.countGreen === null ? 0 : (data.profit_bank).toFixed(2).replace('.', ','))
 
             if (data.countGreen === null) {
                 console.log("Sem registro")
-                await ctx.reply(`📊 Resultados até agora! 📈\n\n⛔<b>Sem registro</b>\n\n✅Acertos: <b>0</b>\n❌Não Bateu: <b>0</b>\n\n🥇Primeira Entrada: <b>0</b>\n1️⃣Primeira Gale: <b>0</b>\n2️⃣Segunda Gale: <b>0</b>\n⚪Winn Branco: <b>0</b>\n\n <b>0% de aproveitamento!</b>`, { parse_mode: 'HTML' })
+                await ctx.reply(`📊 Resultados até agora! 📈\n\n⛔ <b>Sem registro</b>\n\n✅ Acertos: <b>0</b>\n❌ Não Bateu: <b>0</b>\n\n🥇 Primeira Entrada: <b>0</b>\n1️⃣ Primeira Gale: <b>0</b>\n2️⃣ Segunda Gale: <b>0</b>\n⚪ Winn Branco: <b>0</b>\n\n <b>0% de aproveitamento!</b>`, { parse_mode: 'HTML' })
                 return
             }
 
