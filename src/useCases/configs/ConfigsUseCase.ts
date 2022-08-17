@@ -5,8 +5,10 @@ interface IConfigsRequest {
     uuid?: string
     name?: string
     standard?: number
+    standard_new?: number
     password?: string
     activo?: boolean
+    sequence?: boolean
 }
 
 class ConfigsUseCase {
@@ -49,11 +51,41 @@ class ConfigsUseCase {
         return configs
     }
 
-    async updateStandard({ standard, uuid }: IConfigsRequest) {
+    async updateStandard({ standard, uuid, sequence }: IConfigsRequest) {
+        let new_standard: number
+
+        if(standard == 2){
+            new_standard = 3            
+        }
+
+        if(standard == 3){
+            new_standard = 4   
+            
+            if(sequence === true){
+                new_standard = 2
+            }
+        }
+
+        if(standard == 4){
+            new_standard = 5   
+            
+            if(sequence === true){
+                new_standard = 3
+            }            
+        }
+
+        if(standard == 5){
+            new_standard = 2   
+            
+            if(sequence === true){
+                new_standard = 4
+            }            
+        }
+
         const configs = await client.config.update({
             where: { uuid: uuid },
             data: {
-                standard
+                standard: new_standard
             }
         })
 

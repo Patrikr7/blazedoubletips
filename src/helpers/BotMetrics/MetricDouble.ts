@@ -187,6 +187,10 @@ class MetricDouble {
 
                 await this.bot.replyMessage({ message: `${await this.red}`, messageID: data.idMessageSent })
                 await this.bot.sendMessage({ message: `📝 Siga arrisca a gestão indicada! 📈` })
+
+                // ATUALIZA O PADRAO
+                await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid })
+                
                 console.log(`BOT1: RED: ${await this.red}`)
                 console.log(data.colors)
                 console.log("--------------------------------------------------")
@@ -203,7 +207,10 @@ class MetricDouble {
             if (possibleEntryCancel) {
                 if (data.messageID !== null) await this.bot.deleteMessageWithID(data.messageID)
                 data.messageID = null
-                //await this.bot.sendMessage({ message: await this.abort })
+                
+                // ATUALIZA O PADRAO
+                await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: true })
+
                 console.log("BOT1: ---> Sequência Quebrada, Mensagem apagada.")
                 console.log(data.colors)
                 console.log("--------------------------------------------------")
@@ -239,6 +246,10 @@ class MetricDouble {
                 })
 
                 await this.bot.replyMessage({ message: `${await this.greenWithWhite}${data.gale ? `\n${thisGale}` : ""}`, messageID: data.idMessageSent })
+
+                // ATUALIZA O PADRAO
+                await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: false })
+
                 console.log(`BOT1: GREEN WHITE: ${await this.greenWithWhite} ${data.gale ? `\n\n${thisGale}` : ""}`)
                 console.log(data.colors)
                 console.log("--------------------------------------------------")
@@ -283,6 +294,10 @@ class MetricDouble {
                 })
 
                 await this.bot.replyMessage({ message: `${await this.green}${data.gale ? `\n${thisGale}` : ""}`, messageID: data.idMessageSent })
+
+                // ATUALIZA O PADRAO
+                await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: false })
+
                 console.log(`BOT1: GREEN: ${await this.green} ${data.gale ? `\n${thisGale}` : ""}`)
                 console.log(data.colors)
                 console.log("--------------------------------------------------")

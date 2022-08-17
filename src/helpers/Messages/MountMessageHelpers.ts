@@ -17,13 +17,13 @@ class MountMessageHelper {
         this.abortEntry = "<b>⚠️ ABORTAR ENTRADA ⚠️</b>"
         this.entryRed = "🔴"
         this.entryblack = "⚫"
-        this.green = "<b>WINNNN!</b>\n✅ 🤑💰 ✅"
+        this.green = "<b>WINNNN!</b>\n✅✅✅"
         this.red = "<b>REEED!</b>\n❌❌😯💨"
         this.info = "2️⃣ Máximo <b>02 Martingale</b>"
         this.cover = "⚪"
         this.alert = "<b>⚠️ ATENÇÃO ⚠️</b>"
         this.balance = "📊 Balanço 📊"
-        this.greenWithWhite = "<b>WINNNN!!</b>\n✅ 🤑💰 ✅\n\n<i>No Branco</i> ⚪"
+        this.greenWithWhite = "<b>WINNNN!!</b>\n✅✅✅\n\n<i>No Branco</i> ⚪"
         this.register = "💰 Cadastre-se e ganhe um bônus no seu primeiro depósito! ⬇️\n✅ https://bit.ly/3OT8XIG ✅"
     }
 
