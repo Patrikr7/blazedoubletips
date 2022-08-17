@@ -15,6 +15,6 @@
 
 ## 🤖 Bot Blaze
  
-A [Blaze][blaze] apostas é um cassino online que recentemente se tornou popular nas redes sociais. 
+A Blaze apostas é um cassino online que recentemente se tornou popular nas redes sociais. 
 
 Esse bot tem como objetivo enviar mensagem em grupo/canal no telegram, indicando uma possível cor para apostar.
