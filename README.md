@@ -3,7 +3,7 @@
 
 <br />
 <div align="center">
-  <a style="text-decoration: none;" href="https://blaze.com/r/KOGDR9">
+  <a style="text-decoration: none;" href="https://bit.ly/3OT8XIG">
     <img src="./assets/blaze.png" alt="Logo" width="auto" height="80">
   </a>
 
