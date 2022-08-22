@@ -6,6 +6,7 @@ interface IConfigsRequest {
     name?: string
     standard?: number
     standard_new?: number
+    standard_gale?: number
     password?: string
     activo?: boolean
     sequence?: boolean
@@ -51,18 +52,18 @@ class ConfigsUseCase {
         return configs
     }
 
-    async updateStandard({ standard, uuid, sequence }: IConfigsRequest) {
+    async updateStandard({ standard, uuid, sequence, standard_gale }: IConfigsRequest) {
         let new_standard: number
 
         if(standard == 2){
-            new_standard = 3            
+            new_standard = 3 + (standard_gale === 2 ? 1 : 0)
         }
 
         if(standard == 3){
-            new_standard = 4   
+            new_standard = 4 + (standard_gale === 1 ? 0 : standard_gale === 2 ? 1 : 0)
             
             if(sequence === true){
-                new_standard = 2
+                new_standard = 2 
             }
         }
 

@@ -302,7 +302,7 @@ class MetricDouble {
                 await this.bot.replyMessage({ message: `${await this.green}${data.gale ? `\n${thisGale}` : ""}`, messageID: data.idMessageSent })
 
                 // ATUALIZA O PADRAO
-                await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: false })
+                await this.getConfigs.updateStandard({ standard: data.standard, uuid: configs.uuid, sequence: false, standard_gale: data.gale })
 
                 // envia gif
                 await this.bot.replyGif({ gif: 'https://tenor.com/blMbi.gif' })
